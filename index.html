@@ -1,201 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Kakul (Kuku) ❤️</title>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Kuku ❤️</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap');
-
-    body, html {
+    body {
       margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       overflow: hidden;
-      font-family: 'Poppins', sans-serif;
-      background: #0d0d1a;
       color: #fff;
+    }
+
+    .slideshow-container {
+      width: 90%;
+      max-width: 700px;
+      position: relative;
+      text-align: center;
+      background: rgba(0,0,0,0.5);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
     }
 
     .slide {
       display: none;
-      width: 100%;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 20px;
-      position: relative;
+      font-size: 1.4rem;
+      min-height: 200px;
+      animation: fadeIn 1s ease;
     }
 
-    .active {
-      display: flex;
+    .slide.active {
+      display: block;
     }
 
-    h1, h2 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3em;
-      color: #ff4d6d;
-      text-shadow: 0 0 15px rgba(255, 77, 109, 0.8);
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
-    p {
-      font-size: 1.2em;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: auto;
-      background: rgba(255,255,255,0.05);
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
 
-    .gallery img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 15px;
-      margin: 10px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
-    }
-
-    .controls {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-
-    .btn {
-      background: rgba(255,255,255,0.1);
-      border: 2px solid #fff;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 25px;
+    /* Buttons */
+    .prev, .next {
       cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.4);
+      user-select: none;
       transition: 0.3s;
     }
 
-    .btn:hover {
-      background: #ff4d6d;
-      border-color: #ff4d6d;
+    .prev:hover, .next:hover {
+      background: rgba(0,0,0,0.7);
     }
 
-    .hidden-note {
-      display: none;
-      margin-top: 20px;
-      font-size: 1.5em;
-      color: #ffd700;
-      text-shadow: 0 0 15px #ffd700;
-    }
+    .prev { left: -50px; }
+    .next { right: -50px; }
 
-    .reveal-btn {
-      margin-top: 20px;
-      background: #ff4d6d;
-      border: none;
-      padding: 15px 25px;
-      font-size: 1.2em;
-      border-radius: 30px;
-      cursor: pointer;
-      color: #fff;
-      box-shadow: 0 0 15px rgba(255,77,109,0.8);
-    }
-
-    /* Stars background */
-    .stars {
+    /* Floating hearts */
+    .heart {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png');
-      z-index: -1;
-      opacity: 0.4;
+      font-size: 2rem;
+      animation: float 6s linear infinite;
+      color: pink;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="stars"></div>
+  <div class="slideshow-container">
+    <div class="slide active">
+      <h1>Happy Birthday My Kuku ❤️</h1>
+      <p>Aaj ka din sirf tumhare naam ✨</p>
+    </div>
 
-  <!-- Slide 1 -->
-  <div class="slide active" id="slide1">
-    <h1>Happy Birthday Kakul (Kuku) ❤️⭐</h1>
-    <h2>You are my brightest star ✨</h2>
-    <div class="controls">
-      <button class="btn" onclick="nextSlide()">Next ➡️</button>
+    <div class="slide">
+      <p>"I may not express perfectly in words,  
+      but my love for you is more real than anything in this world." 💖</p>
     </div>
-  </div>
 
-  <!-- Slide 2 -->
-  <div class="slide" id="slide2">
-    <h2>My Message for You 💌</h2>
-    <p>
-      I love you baby so much I know main express nhi kr paunga in words but my felling towards you is so real muje esa kisi ke sath feel nhi hota and it's very true. You are partner jisko main sabkuch bta skta hu you tere pehele main kaffi secretive tha but now uhh know about me everything. I love you a lote aur bhagwan se yhi kamna krunga ki aap khus rhe aur aapke mata pita ka dhanyawad karunga ki aapko meri life main bheja ❤️🫂🙌
-    </p>
-    <div class="controls">
-      <button class="btn" onclick="prevSlide()">⬅️ Back</button>
-      <button class="btn" onclick="nextSlide()">Next ➡️</button>
+    <div class="slide">
+      <p>"Tere saath mujhe woh sukoon milta hai  
+      jo aur kahin kabhi nahi mila... 🥺🫂"</p>
     </div>
-  </div>
 
-  <!-- Slide 3 -->
-  <div class="slide" id="slide3">
-    <h2>Our Memories 📸</h2>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/200" alt="Photo 1">
-      <img src="https://via.placeholder.com/200" alt="Photo 2">
-      <img src="https://via.placeholder.com/200" alt="Photo 3">
+    <div class="slide">
+      <p>"Before you, I was secretive.  
+      With you, I am my truest self." 🌸</p>
     </div>
-    <div class="controls">
-      <button class="btn" onclick="prevSlide()">⬅️ Back</button>
-      <button class="btn" onclick="nextSlide()">Next ➡️</button>
-    </div>
-  </div>
 
-  <!-- Slide 4 -->
-  <div class="slide" id="slide4">
-    <h2>Our Song 🎶</h2>
-    <p>Add your favorite song link here (YouTube/Spotify)</p>
-    <div class="controls">
-      <button class="btn" onclick="prevSlide()">⬅️ Back</button>
-      <button class="btn" onclick="nextSlide()">Next ➡️</button>
+    <div class="slide">
+      <p>"I thank God every single day for sending you into my life...  
+      and your parents for raising someone so perfect." 🙏❤️</p>
     </div>
-  </div>
 
-  <!-- Slide 5 -->
-  <div class="slide" id="slide5">
-    <h2>Special Surprise ✨</h2>
-    <button class="reveal-btn" onclick="document.getElementById('note').style.display='block'">Click Me 💖</button>
-    <div id="note" class="hidden-note">Kuku, you are my universe 🌙❤️ forever and always.</div>
-    <div class="controls">
-      <button class="btn" onclick="prevSlide()">⬅️ Back</button>
+    <div class="slide">
+      <h1>Forever Yours ❤️</h1>
+      <p>Happy Birthday Once Again Kuku 🎉💫</p>
     </div>
+
+    <!-- Navigation -->
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
   </div>
 
   <script>
-    let currentSlide = 1;
-    const totalSlides = 5;
+    let slideIndex = 0;
+    showSlides(slideIndex);
 
-    function showSlide(n) {
-      document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
-      document.getElementById('slide' + n).classList.add('active');
+    function plusSlides(n) {
+      let slides = document.querySelectorAll(".slide");
+      slides[slideIndex].classList.remove("active");
+      slideIndex = (slideIndex + n + slides.length) % slides.length;
+      slides[slideIndex].classList.add("active");
     }
 
-    function nextSlide() {
-      if (currentSlide < totalSlides) {
-        currentSlide++;
-        showSlide(currentSlide);
-      }
-    }
-
-    function prevSlide() {
-      if (currentSlide > 1) {
-        currentSlide--;
-        showSlide(currentSlide);
-      }
-    }
+    // Floating hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+      heart.innerHTML = "💖";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 800);
   </script>
 </body>
-  </html>
+</html>
