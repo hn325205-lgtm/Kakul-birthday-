@@ -4,146 +4,143 @@
   <meta charset="UTF-8">
   <title>Happy Birthday Kuku ❤️</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
+
+    /* Background with your image */
     body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      color: #fff;
+      background: url('bg.jpg') no-repeat center center/cover;
+      position: relative;
     }
 
-    .slideshow-container {
-      width: 90%;
-      max-width: 700px;
-      position: relative;
+    /* Floating hearts animation */
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 25px;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    /* Slideshow container */
+    .slideshow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%; max-width: 700px;
       text-align: center;
+      color: white;
       background: rgba(0,0,0,0.5);
       padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.3);
-    }
-
-    .slide {
-      display: none;
-      font-size: 1.4rem;
-      min-height: 200px;
-      animation: fadeIn 1s ease;
-    }
-
-    .slide.active {
-      display: block;
+      border-radius: 25px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 20px rgba(255,0,100,0.8);
+      animation: fadeIn 2s ease-in-out;
     }
 
     @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+    .slide { display: none; font-size: 1.5rem; line-height: 1.8; }
+    .active { display: block; }
+
+    /* Teddy bear gif */
+    .teddy {
+      width: 120px;
+      margin: 15px auto;
+      display: block;
     }
 
-    /* Buttons */
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2rem;
+    /* Next button */
+    .next-btn {
+      margin-top: 20px;
+      padding: 15px 35px;
+      font-size: 1.3rem;
       font-weight: bold;
-      color: #fff;
-      padding: 8px 15px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.4);
-      user-select: none;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #ff4b2b, #ff416c);
+      color: white;
+      cursor: pointer;
       transition: 0.3s;
+      box-shadow: 0 0 20px rgba(255,0,100,0.9);
     }
-
-    .prev:hover, .next:hover {
-      background: rgba(0,0,0,0.7);
-    }
-
-    .prev { left: -50px; }
-    .next { right: -50px; }
-
-    /* Floating hearts */
-    .heart {
-      position: absolute;
-      font-size: 2rem;
-      animation: float 6s linear infinite;
-      color: pink;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    .next-btn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #ff6a00, #ee0979);
     }
   </style>
 </head>
 <body>
-  <div class="slideshow-container">
+
+  <!-- Hearts floating -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 5 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => { heart.remove(); }, 8000);
+    }
+    setInterval(createHeart, 400);
+  </script>
+
+  <!-- Slideshow -->
+  <div class="slideshow">
     <div class="slide active">
-      <h1>Happy Birthday My Kuku ❤️</h1>
-      <p>Aaj ka din sirf tumhare naam ✨</p>
+      <p>❤️ Happy Birthday my love Kakul (Kuku) ❤️</p>
+      <img src="https://i.ibb.co/0jM6gPZ/teddy.gif" alt="teddy" class="teddy">
     </div>
-
     <div class="slide">
-      <p>"I may not express perfectly in words,  
-      but my love for you is more real than anything in this world." 💖</p>
+      <p>I love you baby so much...  
+      Words se main kabhi express nahi kar paunga,  
+      but my feelings for you are 100% real. 🥺❤️</p>
     </div>
-
     <div class="slide">
-      <p>"Tere saath mujhe woh sukoon milta hai  
-      jo aur kahin kabhi nahi mila... 🥺🫂"</p>
+      <p>Tum meri wo partner ho jisko main sab kuch bata sakta hu.  
+      Pehle main kaafi secretive tha... par ab tum meri duniya ho. 🌎❤️</p>
     </div>
-
     <div class="slide">
-      <p>"Before you, I was secretive.  
-      With you, I am my truest self." 🌸</p>
+      <p>"You make my world brighter,  
+      my heart softer,  
+      and my soul happier." ✨</p>
     </div>
-
     <div class="slide">
-      <p>"I thank God every single day for sending you into my life...  
-      and your parents for raising someone so perfect." 🙏❤️</p>
+      <p>Main bhagwan se hamesha yahi prarthana karunga,  
+      ki tum hamesha khush raho...  
+      aur unka dhanyawad karta hu ki tum meri life mein aayi. 🙏❤️</p>
     </div>
-
     <div class="slide">
-      <h1>Forever Yours ❤️</h1>
-      <p>Happy Birthday Once Again Kuku 🎉💫</p>
+      <p>"If I could give you one thing in life,  
+      I would give you the ability to see yourself through my eyes...  
+      only then would you realize how special you are to me." 💫</p>
     </div>
-
-    <!-- Navigation -->
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
+    <div class="slide">
+      <p>I love you endlessly Kuku... forever & always ❤️🫂</p>
+      <img src="https://i.ibb.co/0jM6gPZ/teddy.gif" alt="teddy" class="teddy">
+    </div>
+    <button class="next-btn" onclick="nextSlide()">Next ➺</button>
   </div>
 
   <script>
     let slideIndex = 0;
-    showSlides(slideIndex);
+    const slides = document.querySelectorAll(".slide");
 
-    function plusSlides(n) {
-      let slides = document.querySelectorAll(".slide");
+    function nextSlide() {
       slides[slideIndex].classList.remove("active");
-      slideIndex = (slideIndex + n + slides.length) % slides.length;
+      slideIndex = (slideIndex + 1) % slides.length;
       slides[slideIndex].classList.add("active");
     }
-
-    // Floating hearts
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (4 + Math.random() * 3) + "s";
-      heart.innerHTML = "💖";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }, 800);
   </script>
+
 </body>
 </html>
